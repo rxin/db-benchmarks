@@ -2,6 +2,9 @@
 
 # Used to run dbgen in parallel and store the output to HDFS.
 # This should be used together with a parallel ssh tool or Spark or Hadoop.
+#
+# Author: Reynold Xin
+# Email: rxin [at] cs.berkeley.edu
 
 import getopt
 import os

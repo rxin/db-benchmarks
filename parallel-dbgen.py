@@ -5,6 +5,22 @@
 #
 # Author: Reynold Xin
 # Email: rxin [at] cs.berkeley.edu
+#
+
+"""
+To run this distributed in Spark:
+
+/root/spark/spark-shell
+
+val num_tasks = 10
+import scala.sys.process._
+sc.parallelize(1 to num_tasks, num_tasks).map { partition =>
+  val cmd = "/root/db-benchmarks/parallel-dbgen.py -s 10 -l /mnt/tpch10g -h /tpch10g -n %d -p %d".format(
+    num_tasks, partition)
+  cmd !!
+}.collect()
+
+"""
 
 import getopt
 import os
